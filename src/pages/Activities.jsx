@@ -20,8 +20,8 @@ export default function Activities() {
 
   useEffect(() => {
     const endpoint = id
-      ? `http://localhost:4000/api/transactionLog/${id}`
-      : `http://localhost:4000/api/transactionLog`;
+      ? `https://track-ledger-backend.vercel.app/api/transactionLog/${id}`
+      : `https://track-ledger-backend.vercel.app/api/transactionLog`;
 
     setLoading(true);
     

@@ -24,7 +24,7 @@ export default function RegisterPage() {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:4000/api/user/send-registration-otp', {
+      const response = await axios.post('https://track-ledger-backend.vercel.app/api/user/send-registration-otp', {
         name,
         email,
         password,
@@ -46,7 +46,7 @@ export default function RegisterPage() {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:4000/api/user/verify-otp-and-register', {
+      const response = await axios.post('https://track-ledger-backend.vercel.app/api/user/verify-otp-and-register', {
         name,
         email,
         password,

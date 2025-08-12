@@ -10,7 +10,7 @@ export default function UserContextProvider({ children }) {
   useEffect(() => {
     if (!user) {
       axios
-        .get("http://localhost:4000/api/user/profile", {
+        .get("https://track-ledger-backend.vercel.app/api/user/profile", {
           withCredentials: true,
         })
         .then(({ data }) => setUser(data))

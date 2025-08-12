@@ -27,7 +27,7 @@ function Home( {totalBalance, setRefresh, setTotalBalance}) {
 
 const monthlyExpense = async () => {
   try {
-    const url = 'http://localhost:4000/api/transaction/monthly-summary';
+    const url = 'https://track-ledger-backend.vercel.app/api/transaction/monthly-summary';
     const res = await axios.get(url);
 
     const monthNames = [
@@ -72,7 +72,7 @@ const monthlyExpense = async () => {
 
     const fetchBalance = async () => {
     try {
-      const url = 'http://localhost:4000/api/transaction';
+      const url = 'https://track-ledger-backend.vercel.app/api/transaction';
       const res = await axios.get(url);
       const data = res.data.data;
 
@@ -104,7 +104,7 @@ const submitForm = async (event) => {
   const item = parts.slice(1).join(' ');
 
   try {
-    await axios.post('http://localhost:4000/api/transactionLog', {
+    await axios.post('https://track-ledger-backend.vercel.app/api/transactionLog', {
       name: item,
       date,
       description,

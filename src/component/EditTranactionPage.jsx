@@ -22,7 +22,7 @@ export default function EditTransactionPage() {
       return;
     }
 
-    const url = `http://localhost:4000/api/transactionLog/${id}`; 
+    const url = `https://track-ledger-backend.vercel.app/api/transactionLog/${id}`; 
 
     try {
       await axios.put(url, {
@@ -42,7 +42,7 @@ export default function EditTransactionPage() {
   async function fetchData() {
     try {
       const res = await axios.get(
-        `http://localhost:4000/api/transaction/${id}`
+        `https://track-ledger-backend.vercel.app/api/transaction/${id}`
       );
       const data = res.data.data;
 

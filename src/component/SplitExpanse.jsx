@@ -142,7 +142,7 @@ export default function ExpenseSplitter() {
   const handleClearAllData = async () => {
     if (window.confirm('Are you sure you want to clear all friends? This cannot be undone.')) {
       try {
-        await axios.delete('http://localhost:4000/api/friends');
+        await axios.delete('https://track-ledger-backend.vercel.app/api/friends');
         setAvailableFriends([]);
         setSelectedFriends([]);
         toast.success('All friends cleared!');

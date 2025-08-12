@@ -10,7 +10,7 @@ export default function ResetPasswordPage() {
 
   const sendOtp = async () => {
     try {
-      const res = await axios.post('http://localhost:4000/api/reset-password/send-otp', { email });
+      const res = await axios.post('https://track-ledger-backend.vercel.app/api/reset-password/send-otp', { email });
       toast.success("✅ please check your email");
       toast.success(res.data.message);
       if (res.data.success) setStep(2);
@@ -21,7 +21,7 @@ export default function ResetPasswordPage() {
 
 const verifyOtp = async () => {
   try {
-    const res = await axios.post('http://localhost:4000/api/reset-password/verify-otp', {
+    const res = await axios.post('https://track-ledger-backend.vercel.app/api/reset-password/verify-otp', {
       email,
       otp
     });
