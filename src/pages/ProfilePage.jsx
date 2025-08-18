@@ -79,8 +79,8 @@ export default function ProfilePage() {
 <div className="relative">
   {user?.profileImage ? (
     <img
-      src={`https://track-ledger-backend.vercel.app/uploads/${user.profileImage}`}
-      alt=""
+      src={user.profileImage} // ✅ Use the Cloudinary URL directly
+      alt="Profile"
       className="w-32 h-32 mx-auto rounded-full border-4 border-white/30 shadow-2xl object-cover 
                  transition-all duration-300 group-hover:border-purple-400/50 group-hover:shadow-purple-500/20"
     />
