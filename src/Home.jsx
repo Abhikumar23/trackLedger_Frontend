@@ -157,11 +157,11 @@ const submitForm = async (event) => {
       onClick={(e) => {
         setShowSplitter(!showSplitter);
       }}
-      className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden rounded-2xl px-6 py-2 cursor-pointer
-                 transition-300 animate-pulse flex items-center justify-center space-x-1"
+      className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden rounded-2xl px-3 py-2 cursor-pointer
+                 transition-300 animate-pulse flex items-center justify-center space-x-1 text-sm md:text-base md:px-6"
     >
-      <span className='bg-gradient-to-br from-purple-400 to-pink-400 rounded'><Calculator className="w-10 h-10 text-white " /></span>
-      <span className='font-bold'>Split Expense</span>
+      <span className='bg-gradient-to-br from-purple-400 to-pink-400 rounded'><Calculator className="w-6 h-6 md:w-10 md:h-10 text-white " /></span>
+      <span className='font-bold hidden sm:inline'>Split Expense</span>
     </button>
   </Link>
 
@@ -175,7 +175,7 @@ const submitForm = async (event) => {
 
 
   <h1
-    className="text-4xl font-bold text-white text-center flex items-center justify-center"
+    className="text-4xl font-bold text-white text-center flex items-center justify-center mt-16 md:mt-8 pr-4 md:pr-0"
     aria-label={`Total Balance is ₹${totalBalance.toLocaleString('en-IN')}`}
   >
     <MdCurrencyRupee className="mr-1" />
@@ -274,8 +274,6 @@ const submitForm = async (event) => {
   <UserSummary monthlyData={monthlyData} />
 </div>
     </main>
-
-
 
   );
 
