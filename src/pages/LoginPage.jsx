@@ -56,7 +56,7 @@ const handleSubmit = async (e) => {
 
   return (
     <div className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-gray-600 min-h-screen 
-                    mt-1 py-6 px-4 flex items-center justify-center rounded-xl">
+                    py-6 px-4 flex items-center justify-center">
       <div className="bg-gradient-to-r from-green-100 via-gray-300 to-blue-300 shadow-xl rounded-xl p-8  max-w-md w-full">
         <h1 className="text-3xl font-bold text-center mb-6 text-blue-700">Login</h1>
         <form onSubmit={handleSubmit} className="space-y-4">

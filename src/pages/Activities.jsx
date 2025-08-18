@@ -112,7 +112,7 @@ export default function Activities() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900  mt-1 rounded-xl p-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
       <div className="max-w-4xl mx-auto">
         <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-2xl shadow-lg overflow-hidden">
           {/* Header */}

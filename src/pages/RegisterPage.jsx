@@ -79,7 +79,7 @@ export default function RegisterPage() {
 
   return (
     <div className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-gray-600 min-h-screen 
-                    py-6 px-4 flex items-center justify-center mt-1 rounded-xl">
+                    py-6 px-4 flex items-center justify-center ">
       <div className="bg-gradient-to-r from-green-100 via-gray-300 to-blue-300 shadow-xl rounded-xl p-8 max-w-md w-full">
         
         {step === 1 && (

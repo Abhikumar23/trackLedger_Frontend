@@ -36,7 +36,7 @@ const handleLogoClick = () => {
   return (
     <nav className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-y-4 md:gap-0 px-4 md:px-6 py-4 
                 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900
-                 shadow-lg w-full rounded-xl">
+                 shadow-lg w-full">
       
       {/* Logo Section */}
       <button onClick={handleLogoClick} className="flex items-center gap-2 text-center md:text-left cursor-pointer">

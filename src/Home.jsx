@@ -134,7 +134,7 @@ const submitForm = async (event) => {
 
   return (
 
-  <main className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden mt-2 rounded-xl min-h-screen py-6 px-4">
+  <main className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden min-h-screen py-6 px-4">
         {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div 

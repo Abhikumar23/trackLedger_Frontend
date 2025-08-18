@@ -73,7 +73,7 @@ async function updateForm(e) {
 
   return (
 
-    <main className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden mt-1 rounded-xl min-h-screen py-6 px-4">
+    <main className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden min-h-screen py-6 px-4">
       <div className="max-w-2xl mx-auto mt-8">
         <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 shadow-2xl">
           <div className="text-center mb-6">

@@ -83,7 +83,7 @@ useEffect(() => {
   // editing the saved transaction
 
   return (
-    <div className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 mt-1 rounded-xl min-h-screen py-8 px-4">
+    <div className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen py-8 px-4">
       {/* Header Section */}
       <div className="text-center mb-8">
 {/* Centered Search */}
