@@ -161,7 +161,7 @@ const submitForm = async (event) => {
                  transition-300 animate-pulse flex items-center justify-center space-x-1 text-sm md:text-base md:px-6"
     >
       <span className='bg-gradient-to-br from-purple-400 to-pink-400 rounded'><Calculator className="w-6 h-6 md:w-10 md:h-10 text-white " /></span>
-      <span className='font-bold hidden sm:inline'>Split Expense</span>
+      <span className='font-bold text-xs md:text-base'>Split Expense</span>
     </button>
   </Link>
 
