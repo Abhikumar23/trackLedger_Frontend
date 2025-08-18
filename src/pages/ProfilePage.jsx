@@ -61,7 +61,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen mt-2 py-8 px-4 flex justify-center rounded-xl">
+    <div className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen mt-1 py-8 px-4 flex justify-center rounded-xl">
       {subpage === "profile" && (
         <div className="w-full max-w-md mx-auto">
           {/* Profile Card */}

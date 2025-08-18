@@ -1,1 +1,48 @@
 @import "tailwindcss";
+
+/* Force full width on everything */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+/* Override any wrapper or parent containers */
+body > *, 
+body > * > *,
+#root,
+#__next,
+.App {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+}
+
+/* Container override */
+.container {
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+    .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* Force mobile full width */
+    body, html, #root, #__next, .App {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
