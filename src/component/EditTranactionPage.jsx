@@ -13,50 +13,63 @@ export default function EditTransactionPage() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
 
-  async function updateForm(e) {
-    e.preventDefault();
-
-    const price = name.split(" ")[0];
-    if (!price || isNaN(parseFloat(price))) {
-      alert("Please enter a valid amount and item (e.g., '-500 Rent')");
-      return;
+// Fetch transaction data
+async function fetchData() {
+  try {
+    const res = await axios.get(
+      `https://track-ledger-backend.vercel.app/api/transaction/${id}`,
+      { withCredentials: true }  // ✅ include cookie
+    );
+    const data = res.data.data;
+    setName(`${data.price} ${data.name}`);
+    setDate(data.date.slice(0, 16));
+    setDescription(data.description);
+  } catch (error) {
+    if (error.response?.status === 401) {
+      console.log("Not logged in, redirecting...");
+      navigate("/login");
+    } else {
+      console.error("Error fetching transaction data:", error);
     }
+  }
+}
 
-    const url = `https://track-ledger-backend.vercel.app/api/transactionLog/${id}`; 
+// Update transaction
+async function updateForm(e) {
+  e.preventDefault();
 
-    try {
-      await axios.put(url, {
+  const price = name.split(" ")[0];
+  if (!price || isNaN(parseFloat(price))) {
+    alert("Please enter a valid amount and item (e.g., '-500 Rent')");
+    return;
+  }
+
+  const url = `https://track-ledger-backend.vercel.app/api/transactionLog/${id}`;
+
+  try {
+    await axios.put(
+      url,
+      {
         name: name.substring(price.length + 1),
         date,
         description,
         category,
         price: parseFloat(price),
-      });
-      toast.success("Transation Updated..")
-      navigate("/transactions");
-    } catch (error) {
+      },
+      { withCredentials: true } // ✅ include cookie
+    );
+    toast.success("Transaction Updated..");
+    navigate("/transactions");
+  } catch (error) {
+    if (error.response?.status === 401) {
+      console.log("Not logged in, redirecting...");
+      navigate("/login");
+    } else {
       console.error("Error updating transaction:", error);
     }
   }
+}
 
-  async function fetchData() {
-    try {
-      const res = await axios.get(
-        `https://track-ledger-backend.vercel.app/api/transaction/${id}`
-      );
-      const data = res.data.data;
-
-      setName(`${data.price} ${data.name}`);
-      setDate(data.date.slice(0, 16)); // Format for datetime-local
-      setDescription(data.description);
-    } catch (error) {
-      console.error("Error fetching transaction data:", error);
-    }
-  }
-
-  useEffect(() => {
-    fetchData();
-  }, [id]);
 
   return (
 

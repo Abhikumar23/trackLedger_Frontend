@@ -7,7 +7,7 @@ export default function UserContextProvider({ children }) {
   const [user, setUser] = useState(null);
   const [ready, setReady] = useState(false);
 
-  useEffect(() => {
+  useEffect(() => {  
     if (!user) {
       axios
         .get("https://track-ledger-backend.vercel.app/api/user/profile", {

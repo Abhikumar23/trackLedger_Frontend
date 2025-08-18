@@ -25,7 +25,7 @@ export default function Activities() {
 
     setLoading(true);
     
-    axios.get(endpoint)
+    axios.get(endpoint, { withCredentials: true })
       .then((res) => {
         const sortedLogs = res.data.sort(
           (a, b) => new Date(b.timestamp) - new Date(a.timestamp)

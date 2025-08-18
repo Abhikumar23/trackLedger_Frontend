@@ -21,7 +21,7 @@ export default function ExpenseSplitter() {
   // Fetch friends from backend
   const fetchFriends = async () => {
     try {
-      const res = await axios.get('http://localhost:4000/api/friends');
+      const res = await axios.get('https://track-ledger-backend.vercel.app/api/friends', { withCredentials: true });
       setAvailableFriends(res.data.friends || []);
     } catch (err) {
       console.error('Failed to load friends:', err);
@@ -34,7 +34,7 @@ export default function ExpenseSplitter() {
     const fetchData = async () => {
       try {
         // Fetch expenses
-        const expensesRes = await axios.get('http://localhost:4000/api/expenses');
+        const expensesRes = await axios.get('https://track-ledger-backend.vercel.app/api/expenses', { withCredentials: true });
         setExpenses(expensesRes.data);
         
         // Fetch friends
@@ -51,9 +51,9 @@ export default function ExpenseSplitter() {
   const handleAddFriend = async () => {
     if (newFriendName.trim() && !availableFriends.includes(newFriendName.trim())) {
       try {
-        const res = await axios.post('http://localhost:4000/api/friends', {
+        const res = await axios.post('https://track-ledger-backend.vercel.app/api/friends', {
           friendName: newFriendName.trim()
-        });
+        }, { withCredentials: true });
         setAvailableFriends(prev => [...prev, newFriendName.trim()]);
         setNewFriendName('');
         setShowAddFriend(false);
@@ -76,7 +76,7 @@ export default function ExpenseSplitter() {
   // Remove friend from backend
   const handleRemoveFriend = async (friendToRemove) => {
     try {
-      await axios.delete(`http://localhost:4000/api/friends/${encodeURIComponent(friendToRemove)}`);
+      await axios.delete(`https://track-ledger-backend.vercel.app/api/friends/${encodeURIComponent(friendToRemove)}`, { withCredentials: true });
       setAvailableFriends(prev => prev.filter(f => f !== friendToRemove));
       setSelectedFriends(prev => prev.filter(f => f !== friendToRemove));
       toast.success('Friend removed!');
@@ -107,7 +107,7 @@ export default function ExpenseSplitter() {
     };
 
     try {
-      const res = await axios.post('http://localhost:4000/api/expenses', newExpense);
+      const res = await axios.post('https://track-ledger-backend.vercel.app/api/expenses', newExpense, { withCredentials: true });
       setExpenses(prev => [...prev, res.data]);
       setAmount('');
       setItemName('');
@@ -121,7 +121,7 @@ export default function ExpenseSplitter() {
 
   const handleDeleteExpense = async (expenseId) => {
     try {
-      await axios.delete(`http://localhost:4000/api/expenses/${expenseId}`);
+      await axios.delete(`https://track-ledger-backend.vercel.app/api/expenses/${expenseId}`, { withCredentials: true });
       setExpenses(prev => prev.filter(exp => exp._id !== expenseId));
       toast.success('Expense deleted!');
     } catch (err) {
@@ -142,7 +142,7 @@ export default function ExpenseSplitter() {
   const handleClearAllData = async () => {
     if (window.confirm('Are you sure you want to clear all friends? This cannot be undone.')) {
       try {
-        await axios.delete('https://track-ledger-backend.vercel.app/api/friends');
+        await axios.delete('https://track-ledger-backend.vercel.app/api/friends', { withCredentials: true });
         setAvailableFriends([]);
         setSelectedFriends([]);
         toast.success('All friends cleared!');

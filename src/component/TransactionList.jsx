@@ -28,7 +28,7 @@ useEffect(() => {
   const fetchData = async () => {
     try {
       const url = "https://track-ledger-backend.vercel.app/api/transaction";
-      const res = await axios.get(url);
+      const res = await axios.get(url, { withCredentials: true });
       const data = res.data.data;
       setTransactions(data); // Only update this state here
     } catch (error) {
@@ -62,7 +62,7 @@ useEffect(() => {
     } 
 
     try {
-      await axios.delete(`https://track-ledger-backend.vercel.app/api/transactionLog/${id}`);
+      await axios.delete(`https://track-ledger-backend.vercel.app/api/transactionLog/${id}`, { withCredentials: true });
       setTransactions((prev) => {
         const updated = prev.filter((t) => t._id !== id);
         const newBalance = updated.reduce(

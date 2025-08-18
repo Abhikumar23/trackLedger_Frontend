@@ -22,10 +22,16 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    const response = await axios.post('https://track-ledger-backend.vercel.app/api/user/login', {
-      email,
-      password,
-    });
+    const response = await axios.post(
+      'https://track-ledger-backend.vercel.app/api/user/login',
+      {
+        email,
+        password,
+      },
+      {
+        withCredentials: true, // ✅ Important: send cookies
+      }
+    );
 
     const { status, user } = response.data;
 
@@ -34,9 +40,9 @@ const handleSubmit = async (e) => {
       toast.success("Logged in successfully!");
       navigate('/home');
     } else if (status === 'not found') {
-      toast.success("User not found!");
+      toast.error("User not found!");
     } else if (status === 'password not ok') {
-      toast.success("Password not ok!");
+      toast.error("Password not ok!");
     } else {
       alert("❗ Unexpected server response");
     }
@@ -44,8 +50,8 @@ const handleSubmit = async (e) => {
     console.error("Login error:", error.message);
     toast.error(`Invalid credentials!`);
   }
-
 };
+
 
 
   return (
